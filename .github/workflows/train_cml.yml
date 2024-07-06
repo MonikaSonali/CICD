@@ -41,12 +41,17 @@ jobs:
           pwd
           ls -la
 
+
+      - name: Find and print the path of metrics.json
+        run: |
+          find . -name "metrics.json"
+
       - name: Write CML report
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # Add metrics data to markdown
-          cat /raw_dataset/metrics.json >> model_eval_report.md
+          cat $(find . -name "metrics.json") >> model_eval_report.md
           
           # Add confusion matrix plot to markdown
           echo "![confusion matrix plot](./confusion_matrix.png)" >> model_eval_report.md
