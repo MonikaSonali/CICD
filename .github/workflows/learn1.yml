@@ -25,7 +25,7 @@ jobs:
           python-version: 3.9
       - name: Run Python script
         run: |
-          echo "${{env.Greeting}} ----- ${{env.first_name}}"
+          echo "${{env.Greeting}} ----- ${{env.super_secret}} ----- ${{env.first_name}}"
           echo prints.py
           python prints.py
 
