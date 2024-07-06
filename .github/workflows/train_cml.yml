@@ -46,6 +46,22 @@ jobs:
         run: |
           find . -name "metrics.json"
 
+      - name: Debug and publish metrics (if necessary)
+            run: |
+              # Example of a potential URL usage, adjust according to your needs
+              METRICS_URL="http://example.com/metrics"
+              echo "Publishing metrics to: $METRICS_URL"
+              # Print the URL to debug
+              echo "URL: $METRICS_URL"
+              # Ensure the URL is valid
+              if [[ "$METRICS_URL" =~ ^http ]]; then
+                # Publish using CML or other tools if URL is valid
+                cml-publish $METRICS_URL --md >> report.md
+              else
+                echo "Invalid URL: $METRICS_URL"
+              fi
+
+
       - name: Write CML report
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
