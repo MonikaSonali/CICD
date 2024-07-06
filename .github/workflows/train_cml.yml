@@ -21,6 +21,11 @@ jobs:
       # Setup CML GitHub Action
       - name: Setup CML
         uses: iterative/setup-cml@v1
+
+      - name: Print current directory and list files
+        run: |
+          pwd
+          ls -la
           
       - name: Train model
         run: |
