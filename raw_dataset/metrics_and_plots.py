@@ -10,5 +10,8 @@ def plot_confusion_matrix(model, X_test, y_test):
 
 
 def save_metrics(metrics):
+    print("Metrics received")
     with open("metrics.json", "w") as fp:
         json.dump(metrics, fp)
+        print("Metrics written into JSON file")
+    
