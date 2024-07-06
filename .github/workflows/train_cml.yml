@@ -36,12 +36,17 @@ jobs:
           python3 raw_dataset/preprocess_dataset.py
           python3 raw_dataset/train.py
 
+      - name: Print current directory and list files
+        run: |
+          pwd
+          ls -la
+
       - name: Write CML report
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # Add metrics data to markdown
-          cat raw_dataset/metrics.json >> model_eval_report.md
+          cat ../raw_dataset/metrics.json >> model_eval_report.md
           
           # Add confusion matrix plot to markdown
           echo "![confusion matrix plot](./confusion_matrix.png)" >> model_eval_report.md
