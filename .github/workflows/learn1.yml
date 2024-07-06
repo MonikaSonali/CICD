@@ -7,9 +7,15 @@ on:
     branches: [ "main" ]
 
   workflow_dispatch:
+env:                       #Global  variable
+  Greeting: Heyyy!!!
+  super_secret: ${{secret.SuperSecret}} 
+  
 jobs:
-  build:
+  job_called_build:
     runs-on: ubuntu-latest
+    env:                                #Local variable
+      first_name: Monika
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -19,6 +25,7 @@ jobs:
           python-version: 3.9
       - name: Run Python script
         run: |
+          echo "${{env.Greeting}} ----- ${{env.super_secret}} ----- ${{env.first_name}}"
           echo prints.py
           python prints.py
 
