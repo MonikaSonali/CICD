@@ -4,7 +4,7 @@ name: PR
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "dev1" ]
 
   workflow_dispatch:
 env:                       #Global  variable
