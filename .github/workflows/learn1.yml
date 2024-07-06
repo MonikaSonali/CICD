@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 env:                       #Global  variable
   Greeting: Heyyy!!!
-  super_secret: ${{secret.SuperSecret}} 
+  super_secret: ${{secrets.SuperSecret}} 
   
 jobs:
   job_called_build:
